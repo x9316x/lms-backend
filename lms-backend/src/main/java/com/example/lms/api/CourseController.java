@@ -1,7 +1,7 @@
 package com.example.lms.api;
 
-import com.example.lms.course.Course;
-import com.example.lms.course.CourseRepository;
+import com.example.lms.course.CourseService;
+import com.example.lms.course.dto.CourseDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,15 +12,15 @@ import java.util.List;
 @RequestMapping("/api")
 public class CourseController {
 
-    private final CourseRepository courseRepository;
+    private final CourseService courseService;
 
-    public CourseController(CourseRepository courseRepository) {
-        this.courseRepository = courseRepository;
+    public CourseController(CourseService courseService) {
+        this.courseService = courseService;
     }
 
     // Публичный список опубликованных курсов
     @GetMapping("/courses")
-    public List<Course> listPublished() {
-        return courseRepository.findAllByPublishedTrueOrderByCreatedAtDesc();
+    public List<CourseDto> listPublished() {
+        return courseService.getPublished();
     }
 }
