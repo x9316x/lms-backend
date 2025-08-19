@@ -1,0 +1,22 @@
+﻿# IntelliJ
+.idea/
+*.iml
+
+# Maven / build
+target/
+out/
+*.log
+
+# Java
+*.class
+
+# OS
+Thumbs.db
+.DS_Store
+
+# H2 local files
+*.mv.db
+*.h2.db
+
+# env
+*.env
